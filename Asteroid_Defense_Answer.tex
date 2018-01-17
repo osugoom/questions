@@ -1,0 +1,96 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb,siunitx,graphicx}
+\usepackage[margin=1in]{geometry}
+\DeclareSIUnit\ergs{ergs}
+\DeclareSIUnit\yr{yr}
+\DeclareSIUnit\AU{AU}
+\DeclareSIUnit\msun{\ensuremath{\mathrm{M}_{\odot}}}
+
+\title{Asteroid Defense}
+\author{Matthias J. Raives}
+
+\begin{document}
+	
+        \maketitle{}
+        
+	\section{Deflection}	
+	Consider an asteroid at some distance $R$ from Earth, heading directly towards the center of the Earth at a speed $v_{0}$.  To deflect it, we need to change its velocity such that it path just barely intersects the gravitational focusing radius $b$.
+	
+	The gravitational focusing radius can be derived from a conservation of energy and angular momentum argument:
+        \begin{align}
+                \frac{1}{2}mv_{0}^{2} &= \frac{1}{2}mv_{max}^{2} - \frac{GM_{\oplus}m}{R_{\oplus}}\\
+                bv_{0} &= v_{max}R_{\oplus}
+        \end{align}
+        where $v_{max}$ is the velocity at impact.  We solve for $b$ as:
+        \begin{equation}
+                b = R_{\oplus}\left(1+\frac{v_{esc}^{2}}{v_{0}^{2}}\right)
+        \end{equation}
+        where $v_{esc}$ is the escape velocity from the surface of the Earth
+        \begin{align}
+                v_{esc}^{2} = \frac{2GM_{\oplus}}{R_{\oplus}}.
+        \end{align}
+        
+        Now consider the incoming asteroid.  It has an initial momentum $\mathbf{p}_{0}=m\mathbf{v}_{0}$.  Consider our deflection to change it's momentum by some $\Delta \mathbf{p}$ but without changing the total energy, i.e., $|\mathbf{p}_{0}|=|\mathbf{p}_{1}|$.  This defines a triangle that can be solved as:
+        \begin{equation}
+                \sin\frac{\theta}{2} = \frac{\Delta p}{p_{0}}
+        \end{equation}
+        where $\theta$ is determined by
+        \begin{equation}
+                \sin\theta = \frac{b}{R}.
+        \end{equation}
+        Using the small-angle approximation (valid if $R\gg b$, i.e., $R\gg R_{\oplus}$ and $v_{0}\gg v_{esc}$), we obtain
+        \begin{equation}
+                \Delta p = p_{0}\frac{b}{R} = mv_{0}\frac{R_{\oplus}}{R}\left(1+\frac{v_{esc}}{v_{0}}\right)
+        \end{equation}
+        In the reference frame initially co-moving with the asteroid, the magnitudes of the initial and final momenta are not the same, and the change in energy (and thus, by conservation of energy, the energy required to change it's trajectory) is just:
+        \begin{equation}
+                \Delta E = \frac{\Delta p^{2}}{2m} = \frac{1}{2}mv_{0}^{2}\frac{R_{\oplus}^{2}}{R^{2}}\left(1+\frac{v_{esc}}{v_{0}}\right)^{2}
+        \end{equation}
+        Suppose the asteroid is the same size as the Chicxulub impactor, and is detected at the moon's orbital distance.  The asteroid's mass can be determined assuming it has an average density of $\rho=\SI{5}{\gram\per\cm\cubed}$:
+        \begin{equation}
+                m = \frac{4\pi}{3}\rho R^{3} \sim \SI{3e18}{\gram}.
+        \end{equation}
+        If the earth-moon orbital distance is not known, it can be determined from Kepler's 3rd law:
+        \begin{align}
+                \left(\frac{P}{\si{\yr}}\right)^{2} &= \left(\frac{\si{\msun}}{M}\right)\left(\frac{R}{\si{\AU}}\right)^{3}\\
+                R &= \left(\frac{P}{\si{\yr}}\right)^{2/3}\left(\frac{M}{\si{\msun}}\right)^{1/3}\:\si{\AU}\\
+                R &\sim \SI{2e-3}{\AU} \sim \SI{3e5}{\km}
+        \end{align}
+        The initial velocity can be assumed to be the free-fall velocity at \SI{1}{\AU}, i.e.,
+        \begin{equation}
+                v_{0} = \sqrt{\frac{2G\si{\msun}}{\SI{1}{\AU}}} \sim \SI{4e6}{\cm\per\second}.
+        \end{equation}
+        Thus, the energy required is:
+        \begin{equation}
+                \Delta E \sim \SI{1.5e28}{\ergs}.
+        \end{equation}
+        Note that gravitational focusing had a minimal effect on the answer.  This is because the asteroid is moving quickly; an object with a small relative velocity (say, small bodies near Earth during solar system formation) will be focused much more effectively.
+        
+        \section{Destruction}
+        Smaller asteroids will have a smaller impact velocity as they have a smaller terminal velocity.  Terminal velocity is defined as the velocity at which the drag force and gravitational force balance out, so:
+        \begin{align}
+                mg &= \frac{1}{2}\rho_{A} v_{T}^{2}c_{D}A\\
+                v_{T}^{2} &= {\frac{2mg}{\rho_{A} c_{D}A}},
+        \end{align}
+        where $\rho_{A}$ is the density of air, $A$ is the cross-sectional area of the falling object, and $c_{D}$ is the drag coefficient.  We can use $mg$ for the gravitational force because the height of the atmosphere is small compared to the radius of the earth, especially when you consider that the bulk of air resistance is in the lower atmosphere, where the air is more dense. The energy of the impact thus goes as:
+        \begin{equation}
+                E = \frac{1}{2}mv_{T}^{2} \propto m^{2}A^{-1}.
+        \end{equation}
+        The area can be written in terms of the mass if we know the density of the asteroid:
+        \begin{align}
+                A &= \pi R^{2}\\
+                m &= \frac{4\pi}{3}\rho R^{3}\\
+                A &= \pi \left(\frac{3m}{4\pi\rho}\right)^{2/3}.
+        \end{align}
+        Thus, we have:
+        \begin{equation}
+                E\propto m^{4/3}
+        \end{equation}
+        Consider now, instead of one large asteroid of mass $m$, we have $N$ smaller asteroids, each of mass $m_{N}\equiv \frac{m}{N}$.  The energy then goes as
+        \begin{equation}
+                \Sigma{E} \propto N\left(\frac{m_{N}}{N}\right)^{4/3} \propto N^{-1/3}
+        \end{equation}
+        Thus, to reduce the total impact energy by a factor of 10, we would need to break the asteroid into $N=1000$ smaller impactors.
+
+\end{document}
