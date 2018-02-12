@@ -1,0 +1,75 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb,siunitx,graphicx}
+\usepackage[margin=1in]{geometry}
+\DeclareSIUnit\ergs{ergs}
+\DeclareSIUnit\yr{yr}
+\DeclareSIUnit\AU{AU}
+\DeclareSIUnit\msun{\ensuremath{\mathrm{M}_{\odot}}}
+
+\title{Snowfall}
+\author{Matthias J. Raives}
+
+\begin{document}
+    
+    \maketitle{}
+    
+    \section{Mass of Snowmelt}
+    The OOM method of solving this problem is to equate the kinetic energy of a falling layer of snow to the thermal energy required to melt the snow.
+    
+    Consider an idealized layer of falling snow, of mass $M$, which falls at the terminal velocity of a single snowflake:
+    \begin{equation}
+        v_{T}^{2} = \frac{2mg}{\rho_\mathrm{air} \sigma C_{d}}
+    \end{equation}
+    Where $m$ is the mass of a snowflake, $\sigma$ is it's projected area, and $\rho_\mathrm{air}$ is the density of air. For simplicity, we will assume that $C_{d}=1$.  The snow layer then has kinetic energy:
+    \begin{equation}
+        K = \frac{1}{2}Mv_{T}^{2} = \frac{Mmg}{\rho_\mathrm{air}\sigma}
+    \end{equation}
+    This can melt a mass of snow:
+    \begin{equation}
+        \mathrm{d}M = \frac{K}{\Delta\epsilon_\mathrm{fus}} = \frac{Mmg}{\rho_\mathrm{air}\sigma\Delta\epsilon_\mathrm{fus}}
+    \end{equation}
+    where $\Delta\epsilon_\mathrm{fus}=\SI{3e9}{\ergs\per\gram}$ is the specific heat of fusion of water (the energy per unit mass required to melt ice at \SI{0}{\celsius}).  Thus we can write:
+    \begin{equation}
+        \frac{\mathrm{d}M}{M} = \frac{mg}{\rho_\mathrm{air}\sigma\Delta\epsilon_\mathrm{fus}}
+    \end{equation}
+    The mass of a snowflake can be written as:
+    \begin{equation}
+        m = \rho_\mathrm{ice}\sigma\ell
+    \end{equation}
+    where $\ell$ is the size of the flake normal to the projection (i.e., it's length along the direction of its motion).  Thus we are left with:
+    \begin{equation}
+        \frac{\mathrm{d}M}{M} = \frac{\rho_{\mathrm{ice}}g\ell}{\rho_\mathrm{air}\Delta\epsilon_{\mathrm{fus}}}\label{eq:dmM}
+    \end{equation}
+    Assuming that snowflakes fall standing up (i.e., not face down), then $\ell$ is the diameter of a snowflake, so on order $\ell\sim\SI{0.5}{\cm}$.  The density of ice is approximately that of water $(\rho_{\mathrm{ice}}\sim\SI{1}{\gram\per\cubic\cm})$, and the density of air is $\rho_{\mathrm{air}}\sim\SI{e-3}{\gram\per\cubic\cm}$.  Thus:
+    \begin{equation}
+        \frac{\mathrm{d}M}{M} \sim \frac{1\times10^{3}\times0.5}{10^{-3}\times\num{3e9}} \sim \num{2e-4}
+    \end{equation}
+    
+    \section{Height of Snowmelt}
+    We could equivalently write this as d$h/h$, by writing the mass of a snow layer as
+    \begin{align}
+        M &= f_\mathrm{fresh}A\rho_\mathrm{ice}h & \mathrm{d}M &= f_\mathrm{melt}A\rho_\mathrm{ice}\mathrm{d}h
+    \end{align}
+    where $A$ is the area of the snow layer and $f$ is the packing efficiency of snow.  We see then that $\frac{\mathrm{d}M}{M}=\frac{\mathrm{d}h}{h}$, assuming that the falling snow is packed with the same efficiency as the layers on the ground.  That this is a good assumption is not immediately obvious: falling snow is packed much less efficiently than snow is on the ground.  But by considering the snowfall as a single layer, we are effectively projecting a volume of snowfall onto a surface, which increases the effective packing efficiency.  It is also true, however, that the packing efficiency of snow on the ground is increased by compression due to the weight of new layers of snow.  In generality, then:
+    \begin{align}
+        \frac{\mathrm{d}h}{h} = \frac{f_{\mathrm{fresh}}}{f_\mathrm{melt}}\frac{\mathrm{d}M}{M}
+    \end{align}
+    i.e., the more tightly packed the already fallen snow is compared to fresh snow, the shorter the melt layer will be.
+    
+    \section{Hail}
+    For this problem, we can just consider a single hailstone.  A hailstone of radius $r$ has mass:
+    \begin{equation}
+        M = \frac{4\pi}{3}\rho_{\mathrm{ice}}r^{3} = \frac{4}{3}\rho_{\mathrm{ice}}\sigma r
+    \end{equation}
+    and thus, we can write, in analogy to Equation~\eqref{eq:dmM}:
+    \begin{equation}
+        \frac{\mathrm{d}M}{M} = \frac{4\rho_{ice}gr}{3\rho_{\mathrm{air}}\Delta\epsilon_{\mathrm{fus}}}
+    \end{equation}
+    For the hail to melt more ice than it deposits, then we must have $\frac{\mathrm{d}M}{M}\geq1$, or:
+    \begin{equation}
+        r\geq\frac{3\rho_{\mathrm{air}}\Delta\epsilon_{\mathrm{fus}}}{4\rho_{\mathrm{ice}}g}\sim\frac{3\times\num{e-3}\times\num{3e9}}{4\times 1\times\num{e3}}\sim \SI{2e3}{\cm}
+    \end{equation}
+    
+    
+\end{document}
