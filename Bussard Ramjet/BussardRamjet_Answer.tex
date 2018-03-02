@@ -101,6 +101,7 @@
     \begin{equation}
      \Delta v = v_{e}\ln\left(\frac{m_{0}}{m_{f}}\right)
     \end{equation}
+    where $m_0$ is the initial mass of the spacecraft (fuel + payload) and $m_f$ is the final mass (just payload).
     
     \subsection{Exhaust Velocity}
       In the case of pulse propulsion, the ``ejecta velocity'' is actually the velocity of the explosion, when it pushes against your ship.  A nuclear bomb of mass $M$ has yield $E = \epsilon Mc^{2}$; the ejecta then has velocity:
@@ -109,14 +110,22 @@
       \end{equation}
       However, only a fraction $f\leq \frac{1}{2}$ of the mass is intercepted, so the effective velocity is
       \begin{equation}
-       v_{e} = f\sqrt{2\epsilon} c
+       v_{e} = f\sqrt{2\epsilon} c.
       \end{equation}
     
     \subsection{Mass Ratio}
-      Adopting a fiducial $\epsilon=10^{-2}$ and $f=\frac{1}{2}$, we see:
+      We can calculate $\epsilon$ as:
       \begin{equation}
-       \frac{m_{0}}{m_{f}} = \exp\left(\frac{\Delta v}{v_{e}}\right) = e
+        \epsilon = \frac{\Delta E}{mc^2} \approx 10^{-3}
       \end{equation}
-      That is, slightly over half the mass of the spacecraft must be fuel (i.e., nukes).  The answer here will vary considerably because of the exponential, however.
+      Adopting a fiducial $f=\frac{1}{2}$, we see:
+      \begin{equation}
+        v_e \approx 0.02c
+      \end{equation}
+      and thus
+      \begin{equation}
+       \frac{m_{0}}{m_{f}} = \exp\left(\frac{\Delta v}{v_{e}}\right) = e^{2.5} \approx 10.
+      \end{equation}
+      That is, about 90\% of the mass of the spacecraft must be fuel (i.e., nukes).  The answer here will vary considerably because of the exponential, however.  Also, modern thermonuclear weapons would increase the efficiency of this design.
   
 \end{document}

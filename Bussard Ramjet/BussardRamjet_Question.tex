@@ -1,5 +1,6 @@
 \documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{siunitx}
 \title{Interstellar Propulsion}
 \author{Matthias Raives}
 \date{\today}
@@ -9,8 +10,17 @@
   
   \textbf{(a)} The Bussard Ramjet is a hypothetical means of space travel in which a spaceship travelling through the ISM uses magnetic fields to capture protons and feed them into a fusion reactor for propulsion.  What is the maximum speed of a spacecraft equipped with the Bussard Ramjet, assuming perfect efficiency of the reactor (i.e., all produced energy is used for propulsion and the excess protons produced by the p-p chain are recaptured losslessly), and that the reaction is fuel-limited?
   
-  \textbf{(b)} Project Orion was a hypothetical spacecraft design that used nuclear pulse propulsion -- nuclear bombs would be exploded behind the spacecraft, propelling it forward.  What fuel-to-payload mass ratio do you need to reach the same velocity as the Bussard Ramjet?
+  \textbf{(b)} Project Orion was a hypothetical spacecraft design that used nuclear pulse propulsion -- nuclear bombs would be exploded behind the spacecraft, propelling it forward.  What fuel-to-payload mass ratio do you need to reach the same velocity as the Bussard Ramjet, assuming U-235 fission bombs?\\
+  \\
+  Proton-Proton chain:
+  \begin{equation}
+      6\mathrm{p} \rightarrow \mathrm{He}^{4} + 2\mathrm{p} + \nu_{e} + \SI{7}{\mega\eV}
+  \end{equation}
+  \noindent U-235 fission:
+  \begin{equation}
+      {}^{235}\mathrm{U} + \mathrm{n} \rightarrow {}^{141}\mathrm{Ba} + {}^{92}\mathrm{Kr} + 3\mathrm{n} + \SI{200}{\mega\eV}
+  \end{equation}
   
-  %~ \textbf{(b)} Since we are using magnetic fields to capture ISM protons, at high enough velocity, the free electrons in the ISM will cause significant energy losses due to cyclotron radiation.  At what velocity does this become an important consideration?  What does this imply about the feasability of this propulsion system?
+  \noindent Energy yields are approximate.
   
 \end{document}
