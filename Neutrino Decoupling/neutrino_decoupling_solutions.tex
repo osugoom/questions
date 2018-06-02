@@ -1,0 +1,95 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+ \geometry{
+ bottom=20mm,
+ right=20mm,
+ left=20mm,
+ top=20mm,
+ }
+
+
+\newcommand{\Kel}{\mathrm{K}}
+\newcommand{\OmegaB}{\Omega_b}
+\newcommand{\rhob}{\rho_b}
+\newcommand{\rhocrit}{\rho_{\mathrm{crit}}}
+\newcommand{\rhoIGM}{\rho_{\mathrm{IGM}}}
+\newcommand{\nIGM}{n_{\mathrm{IGM}}}
+
+\title{Decoupling}
+\author{Andr\'{e}s N. Salcedo}
+\date{December 1, 2017}
+
+\begin{document}
+
+\maketitle
+
+Generically decoupling refers to a period when different types of particles fall out of thermal equilibrium with each other. Photon decoupling refers to the period in the development of the universe when the density of electrons dropped enough to allow photons to stream freely. These photons are now observed as part of the CMB.  Neutrinos similarly decoupled at an earlier redshift, and thus there should be an analagous cosmic neutrino background.
+
+\begin{enumerate}
+
+\item Calculate the redshift of photon decoupling.
+
+Decoupling occurs when the photon mean free path is equal to the horizon length:
+
+$$\l_{\mathrm{mfp}} \approx c H^{-1}$$
+
+Therefore we can write:
+
+$$H = c\; n_e \sigma_T$$
+
+Note that this is equivalent to:
+
+$$\Gamma = H$$
+
+Recalling the Friedmann equation:
+
+$$\frac{H^2}{H_0^2} = \frac{\Omega_{r,0}}{a^4} + \frac{\Omega_{m,0}}{a^3} + \Omega_{\Lambda,0} + \frac{1 - \Omega_0}{a^2}$$
+
+Since we know decoupling occurs after the universe was radiation dominated we have:
+
+$$H \approx H_0 \sqrt{\frac{\Omega_{m,0}}{a^3} + \Omega_{\Lambda,0}}$$
+
+We also have:
+
+$$n_e = n_{e,0} a^{-3}$$
+
+Allowing us to write:
+
+$$H_0 \sqrt{\frac{\Omega_{m,0}}{a^3} + \Omega_{\Lambda,0}} = c \; n_{e,0} \sigma_T a^{-3}$$
+
+And since we know $a << 1$ we can make the further simplification:
+
+$$H_0 \frac{\sqrt{\Omega_m}}{a^{3/2}} = c \; n_{e,0} \sigma_T a^{-3} \rightarrow a^{3/2} = \frac{c \; n_{e,0} \sigma_T}{ H_0 \sqrt{\Omega_m}} $$
+
+Using the well known expression for the critical density:
+
+$$n_{e,0} = X_e(z_{dec}) \frac{\Omega_b \rho_c}{m_H} = X_e(z_{dec})\frac{\Omega_b}{m_H} \frac{3 H_0^2}{8 \pi G} \approx 2 \times 10^{-7} \; \mathrm{cm}^{-3} X_e(z_{dec})$$
+
+To find $X_e(z_{dec})$ we would have to use the Saha equation, so just take it to be $X_e(z_{dec}) = 0.01$. Solving then yields:
+
+$$a \approx 10^-3 \rightarrow z_{dec} \approx 1000$$
+
+\item (Bonus) Calculate the redshift of neutrino decoupling. For neutrino interactions with positrons and electrons $\sigma v \approx G^2_F T^2$ where $G_F = 1.16 \times 10^-5 \; \mathrm{GeV}^{-2}$ is Fermi's constant. You may also make use of the fact that number density of relativistics electrons and positrons can be written $n \propto T^3$.
+
+As before we have:
+
+$$\Gamma = H$$
+
+Substituting in what has been given:
+
+$$G^2_F T^5 = H = \sqrt{\frac{8 \pi}{3} G \rho} \approx \sqrt{G T^4}$$
+
+Solving for temperature  then yields:
+
+$$T \approx \left( \frac{\sqrt{G}}{G^2_F} \right) \approx 1 \; \mathrm{MeV} \approx 1.16 \times 10^{10} \; \mathrm{K}$$
+
+This then would correspond to a redshift of:
+
+
+$$z = \frac{1.16 \times 10^{10} \; \mathrm{K}}{2.7 \; \mathrm{K}} \approx 10^{10}$$
+
+
+\end{enumerate}
+
+\end{document}
