@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+
+\def\beq{\begin{eqnarray}}
+\def\eeq{\end{eqnarray}}
+
+\title{Silk Damping}
+\author{Andr\'{e}s N. Salcedo}
+
+\begin{document}
+
+\maketitle
+
+Silk damping refers to the erasure of small scale perturbations in the (baryonic) matter-photon field at early times. The matter is coupled to the photons and so is dragged along during diffusion from hot/dense to cold regions. You may use the following equation relating scale factor and time in a universe with radiation and matter long after matter-radiation equality:
+
+$$ a \approx \left( \frac{3}{2} \sqrt{\Omega_m} H_0 t \right)^{\frac{2}{3}} $$
+
+\begin{enumerate}
+
+\item Calculate the mean free path for Silk damping photons.
+
+  The mean free path for Silk damping photons is given by:
+
+  \beq
+  \lambda = \frac{1}{n_e \sigma_T}
+  \eeq
+
+  In this case the matter is completely ionized, so we have $(\Omega_b = 0.04, H_0 = 70 \; \mathrm{km/s/Mpc})$:
+
+  \beq
+  n_{e} = n_{b} a^3 = \frac{\Omega_{b} \rho_{c} a^3}{m_H} = \frac{\Omega_{b}}{m_H} \frac{3 H_0^2}{8 \pi G} a^3 \approx 1.4 \times 10^{11} \; M_{\odot} \; \mathrm{Mpc}^{-3} \; a^3
+  \eeq
+
+  Note that we used the Friedmann equation to solve for the critical density. Plugging in for the mean free path:
+
+  \beq
+  \lambda = 2.151 \times 10^6 \; \mathrm{Mpc} \; a^3
+  \eeq
+  
+\item What is the scale of density perturbations that will be washed out by Silk damping?
+
+  Density perturbations smaller than this scale will be washed out but so will larger ones that are smaller than the random walk distance. Consider the net displacement of a photon, a sum of $N$ free paths:
+
+  \beq
+  \vec{R} = \vec{r}_1 + \vec{r}_2 + ... +\vec{r}_N
+  \eeq
+
+  squaring:
+
+  \beq
+  \lambda_{RMS}^2 = \left< \vec{R}^2 \right> = \left< \vec{r}^2_1 \right> + \left< \vec{r}^2_2 \right> + ... + \left< \vec{r}^2_N \right> + 2 \left< r_1 \cdot r_2 \right> + 2 \left< r_1 \cdot r_3 \right> + ...
+  \eeq
+
+  The cross terms all average out to zero in the case of isotropic scattering and we have:
+
+  \beq
+  \lambda_{RMS} = \sqrt{N} \lambda
+  \eeq
+
+  Where $N$ is the number of scatterings before recombination, $z = 1089$ (WMAP). At this scale we have:
+  
+  \beq
+  \lambda = 1.66 \; \mathrm{kpc}
+  \eeq
+
+  From the equation given we have (taking $\Omega_m = 0.29$):
+
+  \beq
+  N = \frac{c t(z = 1089)}{\lambda(z = 1089)} = \frac{2}{3} \frac{c \; a^{\frac{3}{2}}}{\sqrt{\Omega_m} H_0} \frac{ (1 + z)^3 }{\lambda} = 87.45  
+  \eeq
+
+  So Silk damping washes out scales of:
+  
+  \beq
+  \lambda_{RMS} = N \lambda(z = 1089) = 0.01552 \; \mathrm{Mpc}
+  \eeq
+
+  
+\item What is the mass contained in a region of this scale? What implications does this have for observed structure at $z=0$?
+
+  The approximate mass contained in a region of this size would be:
+
+  \beq
+  M = \frac{4}{3} \pi \lambda_{RMS}^2 \Omega_b \rho_c (1 + z)^3 = 1.132 \times 10^{14} \; \mathrm{M_{\odot}}
+  \eeq
+
+  Which is approximately the mass of clusters at z = 0. Fortunately non-baryonic dark matter is not coupled with the photons and so is not Silk damped. The dark matter can then collapse and provide the potential wells for the baryons to catch up and collapse.
+  
+\end{enumerate}
+
+\end{document}
