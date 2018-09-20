@@ -1,0 +1,86 @@
+\documentclass{article}
+
+\usepackage{siunitx,amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+
+\title{The Size of Ordinary Jupiters}
+\author{Matthias J. Raives}
+
+\begin{document}
+  
+  \maketitle{}
+  
+  \section{Electron Degeneracy Pressure}
+    We start with the pressure integral
+    \begin{equation}
+      P_{e} = \frac{1}{3}\int_{0}^{\infty}pvn(p)\:\mathrm{d}p\label{eq:Pressure}
+    \end{equation}
+    with
+    \begin{equation}
+      n(p)\:\mathrm{d}p = \frac{8\pi}{h^{3}}p^{2}\:\mathrm{d}p\label{eq:Density}
+    \end{equation}
+    For a degenerate gas, all momentum states are filled up to the maximum momentum, the Fermi momentum $p_{F}$.  We can find $p_{F}$ as a function of $n_{e}$ by integrating \ref{eq:Density} up to $p_{F}$:
+    \begin{align}
+      n_{e} &= \int_{0}^{p_{F}}n(p)\:\mathrm{d}p\\
+      n_{e} &= \int_{0}^{p_{F}}\frac{8\pi}{h^{3}}p^{2}\:\mathrm{d}p\\
+      n_{e} &= \frac{8\pi}{3h^{3}}p_{F}^{3}\\
+      p_{F} &= h\left(\frac{3}{8\pi}n_{e}\right)^{1/3}\approx \frac{h}{2}n_{e}^{1/3} = \pi\hbar n_{e}^{1/3}
+    \end{align}
+    For a non-relativistic gas, we take $v=p/m_{e}$.  Thus, the electron degeneracy pressure is:
+    \begin{align}
+      P_{e} &= \frac{8\pi}{3h^{3}m_{e}}\int_{0}^{p_{F}}p^{4}\:\mathrm{d}p\\
+      P_{e} &\approx \frac{8}{5}\frac{1}{h^{3}m_{e}}\frac{h^{5}}{2^{5}}n_{e}^{5/3}\\
+      P_{e} &\approx \frac{1}{20}\frac{h^{2}}{m_{e}}n_{e}^{5/3}
+    \end{align}
+    We can write this in terms of the total density by assuming $n_{e}=n_{p}=\frac{\rho}{m_{p}}$:
+    \begin{equation}
+      P_{e} \approx \frac{1}{20}\frac{h^{2}}{m_{e}m_{p}^{5/3}}\rho^{5/3}
+    \end{equation}
+    The electron degeneracy pressure must support the planet against gravity, in hydrostatic equilibrium:
+    \begin{equation}
+      \frac{\mathrm{d}P}{\mathrm{d}r} = -\rho\frac{GM}{r^{2}}
+    \end{equation}
+    At an order of magnitude level, we can simplify this:
+    \begin{align}
+      \frac{P(R)-P(0)}{R} &= -\rho\frac{GM}{R^{2}}\\
+      P_{e} = P(0) &= \rho\frac{GM}{R}\\
+      \frac{1}{20}\frac{h^{2}}{m_{e}m_{p}^{5/3}}\rho^{5/3} &= \rho\frac{GM}{R}\\
+      \intertext{Using $\rho\sim M/R^{3}$:}
+      \frac{1}{20}\frac{h^{2}}{m_{e}m_{p}^{5/3}}M^{5/3}R^{-5} &= GM^{2}R^{-4}\\
+      RM^{1/3} &= \frac{1}{20}\frac{h^{2}}{Gm_{e}m_{p}^{5/3}}\\
+      R &= \SI{1.2e10}{\cm}\:\left(\frac{M}{\si{M_{J}}}\right)^{-1/3} = \SI{1.7}{R_{J}}\:\left(\frac{M}{\si{M_{J}}}\right)^{-1/3}
+    \end{align}
+  
+  \section{Electrostatic Pressure}
+    The central density of a non-degenerate gas giant has an upper limit of about 1 hydrogen atom per Bohr radius cubed:
+    \begin{equation}
+      \rho = \frac{m_{p}}{a_{0}^{3}}
+    \end{equation}
+    Again taking $\rho\sim M/R^{3}$:
+    \begin{align}
+      \frac{M}{R^{3}} &= \frac{m_{p}}{a_{0}^{3}}\\
+      R &= \frac{a_{0}}{m_{p}^{1/3}}M^{1/3}\\
+      R &= \SI{5.5e9}{\cm}\left(\frac{M}{\si{M_{J}}}\right)^{1/3} = \SI{0.8}{R_{J}}\left(\frac{M}{\si{M_{J}}}\right)^{1/3}
+    \end{align}
+    
+  \section{Maximum Radius}
+    At large masses, where degeneracy pressure is important, the size of a gas giant \emph{decreases} with mass, as $R\propto M^{-1/3}$.  Whereas, at small masses, the size of the planet \emph{increases} with mass, as $R\propto M^{1/3}$.  The turnover mass is:
+    \begin{equation}
+      \SI{0.8}{R_{J}}\left(\frac{M}{\si{M_{J}}}\right)^{1/3} = \SI{1.7}{R_{J}}\:\left(\frac{M}{\si{M_{J}}}\right)^{-1/3}\:\longrightarrow M = \SI{3}{M_{J}}
+    \end{equation}
+    and thus the maximum radius of a gas giant is:
+    \begin{equation}
+      R = \SI{1.1}{R_{J}}
+    \end{equation}
+    
+  \begin{thebibliography}{9}
+    \bibitem{BurrowsOstriker}
+      {{Burrows}, A.~S. and {Ostriker}, J.~P.},
+      \textit{Astronomical reach of fundamental physics},
+      {Proceedings of the National Academy of Science},
+      2014,
+      {http://adsabs.harvard.edu/abs/2014PNAS..111.2409B}
+    
+  \end{thebibliography}
+  
+\end{document}
