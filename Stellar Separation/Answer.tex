@@ -1,0 +1,60 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb,siunitx,graphicx}
+\usepackage[margin=1in]{geometry}
+\DeclareSIUnit\ergs{ergs}
+\DeclareSIUnit\yr{yr}
+\DeclareSIUnit\AU{AU}
+\DeclareSIUnit\msun{\ensuremath{\mathrm{M}_{\odot}}}
+
+\title{Why Stars are Parsecs Apart}
+\author{Matthias J. Raives}
+
+\begin{document}
+  
+  \maketitle{}
+  
+  \section{Gravitational Capture}
+  Suppose the distances between stars was set by the limits of gravitational capture; i.e., stars are as close together as they could be without forming binary systems.  In this case, we would expect the characteristic interstellar distance to be
+  \begin{equation}
+    d_{\ast} \sim \frac{2GM_{\ast}}{\sigma_{\ast}^{2}} = \SI{2.6e12}{\cm}\:\left(\frac{M_{\ast}}{\si{\msun}}\right)\left(\frac{\sigma_{\ast}}{\SI{100}{\km\per\second}}\right)^{-2} = \SI{0.2}{\AU}\:\left(\frac{M_{\ast}}{\si{\msun}}\right)\left(\frac{\sigma_{\ast}}{\SI{100}{\km\per\second}}\right)^{-2},
+  \end{equation}
+  where $M_{\ast}$ is the characteristic stellar mass and $\sigma_{\ast}$ is the stellar velocity dispersion.  We see that even for massive stars (say, \SI{100}{\msun}) moving slowly (say, \SI{10}{\km\per\second}), we only have a characteristic separation of $d_{\ast}\sim\SI{200}{\AU}$, far short of the parsec scale stellar separation we observe.  Thus, we can likely rule out the gravitational interactions of the stars as the mechanism behind the characteristic interstellar distance.
+  
+  \section{Galactic Astrophysics}
+  Let us then suppose that the distances between stars is set by the physics of their host galaxies.  It behooves us to write:
+  \begin{equation}
+    f_{\ast}\rho_{disk} \sim M_{\ast}d^{-3}_{\ast}\Longrightarrow d_{\ast} \sim \left(\frac{M_{\ast}}{f_{\ast}\rho_{disk}}\right)^{1/3},
+  \end{equation}
+  where $f_{\ast}$ is the fraction of the disk mass in the form of stars.  The disk density can be determined from the surface density as:
+  \begin{equation}
+    \Sigma_{disk} \sim \rho_{disk}H \sim \rho_{disk}\sigma_{gas}t_{dyn} \sim \sigma_{gas}\left(\frac{\rho_{disk}}{G}\right)^{1/2}\Longrightarrow\rho_{disk} \sim G\left(\frac{\Sigma_{disk}}{\sigma_{gas}}\right)^{2},
+  \end{equation}
+  where $H$ is the scale height of the disk, $\sigma_{gas}$ is the velocity dispersion of the gas, and $t_{dyn}$ is the dynamical time.  We can appeal to Toomre stability to determine $\sigma_{gas}$:
+  \begin{equation}
+    Q_{T} \sim \frac{\sigma_{gas}v_{vir}}{G\Sigma_{disk}R_{disk}}\Longrightarrow \sigma_{gas}\sim Q_{T}G\Sigma_{disk}R_{disk}v_{vir}^{-1},
+  \end{equation}
+  where $v_{vir}$ is the virial velocity.  Thus we see:
+  \begin{equation}
+    \rho_{disk} \sim \frac{v_{vir}^{2}}{Q_{T}^{2}GR_{disk}^{2}}.
+  \end{equation}
+  Using $v_{vir}^{2}=GM/R_{vir}$ and $R_{disk}=\lambda R_{vir}$, where $\lambda$ is the spin parameter and $M$ is the halo mass:
+  \begin{equation}
+    \rho_{disk} \sim \frac{M}{Q_{T}^{2}R_{vir}^{3}\lambda^{2}} \sim \rho_{vir}Q_{T}^{-2}\lambda^{-2}
+  \end{equation}
+  Thus, we have:
+  \begin{equation}
+    d_{\ast} = M_{\ast}^{1/3}f_{\ast}^{-1/3}\lambda^{2/3}Q_{T}^{2/3}\rho_{vir}^{-1/3}
+  \end{equation}
+  The virial density at $z=0$ is defined as:
+  \begin{equation}
+    \rho_{vir}\sim\Delta_{c}\rho_{c,0}\sim 200\rho_{c,0} = 200\frac{3H_{0}^{2}}{8\pi G}
+  \end{equation}
+  Thus, we have:
+  \begin{equation}
+    d_{\ast} \sim \SI{3.8}{pc}\:\left(\frac{M_{\ast}}{\si{\msun}}\right)^{1/3}\left(\frac{\lambda}{0.04}\right)^{2/3}f_{\ast}^{-1/3}Q_{T}^{2/3}
+  \end{equation}
+  Stars make up about $\sim90\%$ of the baryonic mass of the Milky way, and the gas is maintained at marginal stability by stellar feedback (i.e., the gas collapses and forms stars when perturbed, but generally not spontaneously), so $Q_{T}\sim f_{\ast} \sim 1$ is justified.
+  
+  
+\end{document}

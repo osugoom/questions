@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\usepackage{siunitx,amsmath,amssymb}
+
+\title{Elastic Properties of Mountains}
+\author{Matthias J. Raives}
+
+\begin{document}
+  
+  \maketitle{}
+  
+  \section{Elastic Limit of Rock}
+  The simplest theory of mountains suggests that the maximum height is the height that makes the pressure at the base of the mountain equal to the elastic limit---if the mountain is taller than this, then the base will deform inelastically and the mountain will sink.  This sets a limit:
+  \begin{equation}
+    P =\rho g h\\
+  \end{equation}
+  where $P$ is the elastic limit of the rock, measured in pressure units.  Mount Everest has a height of about \SI{8}{\km}, and rock has a density of about \SI{3}{\gram\per\cm\cubed}.  Thus, the elastic limit of rock is:
+  \begin{equation}
+    P = \SI{2.4e8}{\Pa} = \SI{2.4e9}{dyne\per\cm\squared}
+  \end{equation}
+  \section{Mars' Mons}
+  Applying this limit to other solar system bodies, we could write a scaling relation
+  \begin{align}
+    h_{\max} &= \SI{8}{\km}\;\left(\frac{g}{\SI{e3}{\cm\per\second\squared}}\right)^{-1}\\
+    h_{\max} &= \SI{8}{\km}\;\left(\frac{M}{M_{\oplus}}\right)^{-1}\left(\frac{R}{R_{\oplus}}\right)^{2}
+  \end{align}
+  Mars has a mass $M_{\mathrm{Mars}}\sim0.1{M_{\oplus}}$ and a radius $R_{\mathrm{Mars}}\sim0.5R_{\oplus}$, thus implying:
+  \begin{equation}
+    h_{\max} = \SI{20}{\km}
+  \end{equation}
+  which is pretty close to the actual height of Olympus Mons $(\sim\SI{25}{\km})$
+  \section{Spherical Bodies}
+  We can consider an aspherical asteroid as a spherical one with a really large mountain, of height comparable to the asteroid's radius, on one side.  Again, scaling to mountains on Earth:
+  \begin{align}
+    g_{\oplus}h_{\max,\oplus} &= g(R)R\\
+    \frac{GM(R_{\oplus})}{R_{\oplus}^{2}}h_{\max,\oplus} &= \frac{GM(R)}{R}\\
+    \frac{4\pi\rho R_{\oplus}}{3}h_{\max,\oplus} &= \frac{4\pi}{3}\rho R^{2}\\
+    R &= \sqrt{R_{\oplus}h_{\max,\oplus}}\\
+    R &\sim \SI{230}{\km}
+  \end{align}
+  
+\end{document}
